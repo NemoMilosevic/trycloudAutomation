@@ -3,9 +3,11 @@ Feature: Logging into TryCloud app
   I should be able to login to TryCloud app
 
   #Background:
-   # Given user on the login page http://qa3.trycloud.net/                                                                                                                                                                                                           Scenario Outline: Login with valid credentials
+   #Given user on the login page http://qa3.trycloud.net/
+
+  Scenario Outline: Login with valid credentials
   Given user is at TryCloud login page
-  When user use username "<username>" and passcode "<password>"
+  When user use username <username> and passcode <password>
   Then user should be at dashboard page
   Examples:
   | username | password    |
