@@ -12,10 +12,10 @@ import org.junit.runner.RunWith;
                  publish = false, // -> it will give you public link for your local report
                  plugin = { "html:target/cucumber.html", // -> creates a report (.html)
                             "rerun:target/rerun.txt", // -> creates a report (.txt)
-                            "json:target/cucumber.json",
+                            "json:target/cucumber.json", // -> report for unused import statements
                             "me.jvt.cucumber.report.PrettyReports:target"},
                  dryRun = false, // -> checks if codes will run before actual run (quick scan)
-                 tags = "@us_14" // -> run codes with that specific tag
+                 tags = "@us_10" // -> run codes with that specific tag
          )
 public class TestRunner {
 }
