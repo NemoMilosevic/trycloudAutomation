@@ -20,7 +20,7 @@ public class US14_SearchFunction_StepDef {
     public void user_on_the_login_page() {
         LoginPage loginPage = new LoginPage();
         loginPage.goTo();
-        loginPage.login(ConfigurationReader.read("username1"), ConfigurationReader.read("password"));
+        loginPage.login();
 
 
 
