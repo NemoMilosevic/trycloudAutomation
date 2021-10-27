@@ -11,12 +11,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
-    @Before()
+    @Before
     public void setupDriver(){
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @After()
+    @After
     public void tearDown(Scenario scenario){
         if (scenario.isFailed()){
             TakesScreenshot takesScreenshot = (TakesScreenshot) Driver.getDriver();
