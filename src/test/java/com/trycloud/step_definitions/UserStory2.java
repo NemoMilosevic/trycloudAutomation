@@ -43,7 +43,7 @@ public class UserStory2 {
 
     @When("user enters valid credentials")
     public void userEntersValidCredentials() {
-        page.login(ConfigurationReader.read("username1"), ConfigurationReader.read("password"));
+        page.login();
         BrowserUtils.waitFor(3);
     }
 }
