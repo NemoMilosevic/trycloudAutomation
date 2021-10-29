@@ -22,3 +22,4 @@ Feature: As a user, I should be able to login
     When user enter invalid credentials
     And user click login button
     Then “Wrong username or password.” message should be displayed
+
