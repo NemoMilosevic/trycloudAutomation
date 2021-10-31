@@ -13,6 +13,7 @@ public class US10_FilesModuleStepDefs {
 
     SettingsPage settingsPage = new SettingsPage();
     FileUploadPage fileUploadPage = new FileUploadPage();
+    String storageBeforeUpload;
 
     @When("user click Settings on the left bottom corner")
     public void userClickSettingsOnTheLeftBottomCorner() {
@@ -28,15 +29,13 @@ public class US10_FilesModuleStepDefs {
         BrowserUtils.waitFor(2);
         boolean afterSelect = settingsPage.checkBoxesValue.get(2).isSelected();
 
-        Assert.assertTrue(!beforeSelect==afterSelect);
+        Assert.assertEquals(!beforeSelect, afterSelect);
     }
 
     @When("user check the current storage usage")
     public void userCheckTheCurrentStorageUsage() {
-        SettingsPage settingsPage = new SettingsPage();
         settingsPage.filesModule.click();
-        String storageBeforeUpload = fileUploadPage.storage.getText();
-        System.out.println("storageBeforeUpload = " + storageBeforeUpload);
+        storageBeforeUpload = fileUploadPage.storage.getText();
         BrowserUtils.waitFor(3);
     }
 
@@ -51,12 +50,13 @@ public class US10_FilesModuleStepDefs {
     @And("user refresh the page")
     public void userRefreshThePage() {
         Driver.getDriver().navigate().refresh();
+        BrowserUtils.waitFor(3);
     }
 
     @Then("verify the storage usage is increased")
     public void verifyTheStorageUsageIsIncreased() {
         String storageAfterUpload = fileUploadPage.storage.getText();
-        System.out.println("storageAfterUpload = " + storageAfterUpload);
+        Assert.assertNotSame(storageBeforeUpload, storageAfterUpload);
     }
 
 }
