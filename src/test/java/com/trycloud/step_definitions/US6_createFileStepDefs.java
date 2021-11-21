@@ -73,8 +73,11 @@ public class US6_createFileStepDefs {
     @When("Click upload file with upload file option")
     public void click_upload_file_with_upload_file_option() {
         fileName = "rKU8iR89_400x400";
-        String path = "/Users/nadimavafoeva/IdeaProjects/trycloudAutomation/src/test/resources/files/rKU8iR89_400x400.png";
-        filesModulePage.uploadFileButton.sendKeys(path);
+        String projectDir = System.getProperty("user.dir");
+        //String path = "/Users/nadimavafoeva/IdeaProjects/trycloudAutomation/src/test/resources/files/rKU8iR89_400x400.png";
+        System.out.println("projectDir = " + projectDir);
+        String file = "src/test/resources/files/rKU8iR89_400x400.png";
+        filesModulePage.uploadFileButton.sendKeys(projectDir+"/"+file);
         BrowserUtils.waitFor(4);
     }
 }
